@@ -1,12 +1,12 @@
-// use std::io;
-// use rand::Rng;
-// use std::cmp::Ordering;
-// mod guesstosecret;
+use std::io;
+use rand::Rng;
+use std::cmp::Ordering;
+mod guesstosecret;
 
 fn main() { 
-    let s1 = String::from("hello");
-    let s2 = s1.clone();
-    println!("{} et {}",s2,s1);
+    // let s1 = String::from("hello");
+    // let s2 = s1.clone();
+    // println!("{} et {}",s2,s1);
         // let s = String::from("hello");  // s comes into scope
         // takes_ownership(s); // s's value moves into the function...
         // // ... and so is no longer valid here
@@ -76,36 +76,36 @@ fn main() {
 // println!("x = {} and y = {}", x, y);
 
 //import d'une fonction random
-// guesstosecret::types();
-// let secret_number = rand::thread_rng().gen_range(1, 100);
+guesstosecret::types();
+let secret_number = rand::thread_rng().gen_range(1, 100);
 
-// loop {
-//     println!("Please input your guess");
-// let mut guess = String::new();
-// io::stdin().read_line(&mut guess)
-// .expect("Failed to read line");
+loop {
+    println!("Please input your guess");
+let mut guess = String::new();
+io::stdin().read_line(&mut guess)
+.expect("Failed to read line");
 
-// //trim(): remove space start and end
-// //u32 Contain only numerical characters
-// let guess:u32 = match guess.trim().parse(){
-//     Ok(num) => num,
-//     Err(_) => continue,
-// };
-// println!("You guessed:{}", guess);
-// // .expect("Type a number");
+//trim(): remove space start and end
+//u32 Contain only numerical characters
+let guess:u32 = match guess.trim().parse(){
+    Ok(num) => num,
+    Err(_) => continue,
+};
+println!("You guessed:{}", guess);
+// .expect("Type a number");
 
 
-//     match guess.cmp(&secret_number){
-//     Ordering::Less => println!("To small"),
-//     Ordering::Greater => println!("To big"),
-//     Ordering::Equal => {
-//         println!("You win!");
-//         break;
-//     },
+    match guess.cmp(&secret_number){
+    Ordering::Less => println!("To small"),
+    Ordering::Greater => println!("To big"),
+    Ordering::Equal => {
+        println!("You win!");
+        break;
+    },
 
-//     }
+    }
 
-// }
+}
 //Les opérateur logic
 // let x= 5;//statement
 // let y= {
