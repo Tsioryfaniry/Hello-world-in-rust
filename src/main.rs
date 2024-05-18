@@ -1,19 +1,32 @@
 fn main(){
-    let mut s = String::from("Hello world");
-        let word = first_word(&s);
-
-        println!("Slice type {}", word);
-        
-        s.clear();
+    let user1 = User{
+        username: String::from("Tsiory"),
+        email: String::from("tsiory@gmail.com"),
+        _sign_in_count: 1,
+        _active: true
+    };
+    let user2 = User{
+        email: String::from("faniry@gmail.com"),
+        username: String::from("faniry"),
+      ..user1
+    };
+    let name = user1.email;
+    let user_name2 =user1.username;
+    user2.show_user(); 
+    User::build_user(name,user_name2);
 }
+struct User{
+    email:String,
+    username:String,
+    _sign_in_count: u16,
+    _active: bool
+}
+impl User{
+    fn show_user(&self){
+        println!("Voici mon email: {} et mon user name: {}", self.email, self.username);
 
-fn first_word(s: &String) -> &str{
-    let bytes = s.as_bytes();//change string an array
-     for (i, &item) in bytes.iter().enumerate(){//iter() methode iterateur
-        if item == b' '{
-            return &s[0..i];
-        }
-     }
-     &s[..]
-
+    }
+    fn build_user(email:String, username:String) -> User{
+        User { username, email, _sign_in_count: 1, _active: false }
+    }
 }
